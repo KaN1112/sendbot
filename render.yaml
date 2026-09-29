@@ -3,14 +3,12 @@ services:
     name: send-bot-web
     runtime: node
     plan: free
-    buildCommand: npm ci && npm run prisma:generate && npx prisma migrate deploy && npm run build
+    buildCommand: npm ci --include=dev && npm run prisma:generate && npx prisma migrate deploy && npm run build
     startCommand: npm run start:render
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
         value: 22.22.0
-      - key: NODE_ENV
-        value: production
       - key: DATABASE_URL
         fromDatabase:
           name: send-bot-db
