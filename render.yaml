@@ -2,8 +2,9 @@ services:
   - type: web
     name: send-bot-web
     runtime: node
+    plan: free
     buildCommand: npm ci && npm run prisma:generate && npx prisma migrate deploy && npm run build
-    startCommand: npm start
+    startCommand: npm run start:render
     healthCheckPath: /api/health
     envVars:
       - key: NODE_VERSION
@@ -27,20 +28,8 @@ services:
       - key: DISCORD_BOT_TOKEN
         sync: false
 
-  - type: worker
-    name: send-bot-worker
-    runtime: node
-    buildCommand: npm ci
-    startCommand: npm run bot
-    envVars:
-      - key: NODE_VERSION
-        value: 22.22.0
-      - key: NODE_ENV
-        value: production
-      - key: DISCORD_BOT_TOKEN
-        sync: false
-
 databases:
   - name: send-bot-db
+    plan: free
     databaseName: send_bot
     user: send_bot

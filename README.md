@@ -102,10 +102,9 @@ npm run build
 
 ## Renderへ公開する
 
-`render.yaml` は次の3リソースを作成します。
+`render.yaml` は次の2リソースを作成します。
 
-- `send-bot-web`: Next.js管理画面とAPI
-- `send-bot-worker`: discord.js常駐Bot
+- `send-bot-web`: Next.js管理画面、API、discord.js Botを同時起動
 - `send-bot-db`: PostgreSQL
 
 GitHubへ `.env` と `.env.local` を含めずにpushし、Render Dashboardの **New > Blueprint** からリポジトリを選択します。作成画面で以下の秘密値を入力します。
@@ -118,4 +117,4 @@ GitHubへ `.env` と `.env.local` を含めずにpushし、Render Dashboardの *
 
 WebサービスのURLが確定したら、Discord Developer Portalの **OAuth2 > Redirects** に同じCallback URLを追加します。Render上では `.env` ファイルを作らず、DashboardのEnvironment Variablesを使います。
 
-常時接続が必要なBot Workerには、スリープしないインスタンスを選択してください。Webサービスを無料プランにすると無操作時にスリープし、最初のアクセス時だけ起動待ちが発生します。
+無料Webサービスは無操作時にスリープします。外部監視を使う場合は `https://実際のRender URL/api/health` をHTTP GETの監視先に設定できます。無料Render PostgreSQLは作成から30日で失効するため、継続利用時は有料DBまたは外部の永続PostgreSQLへ移行してください。
