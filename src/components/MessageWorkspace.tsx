@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect, useMemo, useState } from "react";
 import { Plus, Trash2, Send, Save, Hash } from "lucide-react";
 type Channel = { id: string; name: string; category: string };
@@ -416,9 +417,13 @@ export function MessageWorkspace({ guildId }: { guildId: string }) {
               <Hash size={18} /> preview
             </div>
             <div className="flex gap-3">
-              <div className="grid size-10 shrink-0 place-items-center rounded-full bg-blurple font-bold">
-                  S
-              </div>
+              <Image
+                src="/send-bot-icon.png"
+                alt=""
+                width={40}
+                height={40}
+                className="size-10 shrink-0 rounded-full"
+              />
               <div className="min-w-0 flex-1">
                 <div>
                   <strong>Send bot</strong>{" "}

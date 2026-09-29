@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { auth } from "@/auth";
 import { redirect } from "next/navigation";
 import { LogoutButton } from "@/components/AuthButton";
@@ -16,9 +17,13 @@ export default async function DashboardLayout({
           href="/dashboard"
           className="flex items-center gap-2 font-extrabold"
         >
-          <span className="grid size-8 place-items-center rounded-lg bg-blurple">
-            S
-          </span>
+          <Image
+            src="/send-bot-icon.png"
+            alt="Send bot"
+            width={32}
+            height={32}
+            className="size-8 rounded-lg"
+          />
           Send bot
         </Link>
         <div className="flex items-center gap-4">

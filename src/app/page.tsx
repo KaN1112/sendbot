@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { MessageSquareText, ShieldCheck, WandSparkles } from "lucide-react";
 import { auth } from "@/auth";
 import { LoginButton } from "@/components/AuthButton";
@@ -8,9 +9,14 @@ export default async function Home() {
     <main className="min-h-screen">
       <nav className="mx-auto flex max-w-6xl items-center justify-between px-6 py-6">
         <div className="flex items-center gap-3 font-extrabold">
-          <span className="grid size-9 place-items-center rounded-lg bg-blurple">
-            S
-          </span>
+          <Image
+            src="/send-bot-icon.png"
+            alt="Send bot"
+            width={36}
+            height={36}
+            className="size-9 rounded-lg"
+            priority
+          />
           Send bot
         </div>
         <span className="text-sm text-muted">
@@ -55,9 +61,13 @@ export default async function Home() {
           </div>
           <div className="bg-[#313338] p-6">
             <div className="flex gap-4">
-              <div className="grid size-10 shrink-0 place-items-center rounded-full bg-blurple font-bold">
-                S
-              </div>
+              <Image
+                src="/send-bot-icon.png"
+                alt=""
+                width={40}
+                height={40}
+                className="size-10 shrink-0 rounded-full"
+              />
               <div className="min-w-0">
                 <div className="font-semibold">
                   Send bot{" "}
