@@ -1,0 +1,1 @@
+import { MessageWorkspace } from "@/components/MessageWorkspace";export default async function Page({params}:{params:Promise<{guildId:string}>}){return <MessageWorkspace guildId={(await params).guildId}/>}

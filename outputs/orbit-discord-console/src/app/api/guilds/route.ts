@@ -1,0 +1,2 @@
+import { auth } from "@/auth";import { prisma } from "@/lib/prisma";import { canManage,getOAuthGuilds } from "@/lib/discord";import { fail,ok } from "@/lib/api";
+export async function GET(){const session=await auth();if(!session)return fail("UNAUTHORIZED","Authentication required",401);const account=await prisma.account.findFirst({where:{userId:session.user.id,provider:"discord"}});if(!account?.access_token)return fail("DISCORD_TOKEN_MISSING","Reconnect Discord",401);return ok((await getOAuthGuilds(account.access_token)).filter(canManage));}

@@ -1,0 +1,1 @@
+import { Page } from "@/components/DataPages";export default function Settings(){return <Page title="Settings" intro="サーバー固有の設定を管理します。"><div className="card max-w-2xl p-6"><h2 className="font-bold">Bot connection</h2><p className="mt-2 text-sm text-muted">BotトークンやOAuthシークレットはサーバー環境変数だけに保存され、ブラウザへ送信されません。</p></div></Page>}

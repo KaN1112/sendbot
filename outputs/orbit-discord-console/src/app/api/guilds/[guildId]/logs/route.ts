@@ -1,0 +1,2 @@
+import { authorizeGuild } from "@/lib/authorization";import { fail,ok } from "@/lib/api";import { prisma } from "@/lib/prisma";
+export async function GET(_:Request,{params}:{params:Promise<{guildId:string}>}){const {guildId}=await params;if(!await authorizeGuild(guildId))return fail("FORBIDDEN","Not allowed",403);return ok(await prisma.auditLog.findMany({where:{guildId},include:{user:{select:{username:true,avatar:true}}},orderBy:{createdAt:"desc"},take:100}))}

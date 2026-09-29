@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+:root { color-scheme: dark; }
+* { box-sizing: border-box; }
+body { margin:0; background:#0f1115; color:#fff; font-family:Inter,ui-sans-serif,system-ui,-apple-system,"Segoe UI",sans-serif; }
+button,input,textarea,select { font:inherit; }
+.field { width:100%; border:1px solid #2b313b; background:#13161b; color:#fff; border-radius:8px; padding:.7rem .8rem; outline:none; }
+.field:focus { border-color:#5865F2; box-shadow:0 0 0 3px rgb(88 101 242 / .15); }
+.label { display:block; color:#b5bac1; font-size:.82rem; font-weight:600; margin-bottom:.4rem; }
+.btn { border:0; border-radius:8px; padding:.68rem 1rem; font-weight:700; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:.5rem; }
+.btn-primary { background:#5865f2; color:white; } .btn-primary:hover{background:#4752c4}.btn:disabled{opacity:.55;cursor:not-allowed}
+.card { background:#1c2027; border:1px solid #2b313b; border-radius:12px; }
